@@ -64,7 +64,7 @@ index=simulated src_ip=203.0.113.45 "Failed password"
 See [full report](https://github.com/sunilna2002/splunk-ssh-brute-force-detection/blob/main/splunk_assets/SSH%20Brute%20Report.pdf)
 
 ## Author
-[Sunil Rajpal] - Google Cybersecurity Certification
+Sunil Rajpal- Google Cybersecurity Certification
 
 ## Date
 21 May 2025
