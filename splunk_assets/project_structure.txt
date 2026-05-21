@@ -1,0 +1,14 @@
+splunk-ssh-brute-force-detection/
+├── README.md
+├── sample_data/
+│   ├── auth.log
+│   └── log_generator.py
+├── splunk_assets/
+│   ├── dashboard.xml
+│   └── searches.txt
+├── investigation_report/
+│   └── SSH_Brute_Force_Investigation.pdf
+└── screenshots/
+    ├── dashboard_full.png
+    ├── attack_timeline.png
+    └── top_attackers.png
