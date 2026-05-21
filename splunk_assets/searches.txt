@@ -1,0 +1,27 @@
+=== SEARCH 1: Top Attacking IPs ===
+index=simulated "Failed password"
+| rex "Failed password for \S+ from (?<src_ip>\d+\.\d+\.\d+\.\d+)"
+| stats count as failed_attempts by src_ip
+| sort - failed_attempts
+| head 10
+
+=== SEARCH 2: Attack Timeline ===
+index=simulated src_ip=203.0.113.45 "Failed password"
+| timechart count
+
+=== SEARCH 3: Most Targeted Usernames ===
+index=simulated "Failed password"
+| rex "Failed password for (?<user>\S+) from"
+| stats count by user
+| sort - count
+
+=== SEARCH 4: Successful Logins ===
+index=simulated "Accepted password"
+| rex "Accepted password for (?<user>\S+) from (?<src_ip>\d+\.\d+\.\d+\.\d+)"
+| stats count by user, src_ip
+
+=== SEARCH 5: Alert Threshold ===
+index=simulated "Failed password"
+| bucket _time span=5m
+| stats count by src_ip, _time
+| where count > 10
